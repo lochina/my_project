@@ -9,7 +9,7 @@ def db_get_words_for_table():
     words = []
     for i, item in enumerate(Words.objects.all()):
         words.append([i+1, item.word, item.translation])
-        return words
+    return words
 
 def db_write_word(new_word, new_translation):
     word = Words(word=new_word, translation=new_translation)
