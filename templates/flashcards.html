@@ -1,0 +1,29 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Карточки для заучивания
+{% endblock %}
+
+{% block page-lead %}
+При каждом открытии страницы карточки перемешиваются. При нажатии на карточку открывается перевод.
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      {% for wordid, word, translation, audio in random_words %}
+    <div class="col s6">
+      <div class="card teal">
+        <div class="card-content white-text">
+          <p class="activator waves-effect waves-block waves-light">{{ word }}</p>
+        </div>
+        <div class="card-reveal">
+          <div class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+          <p>{{ translation }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

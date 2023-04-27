@@ -1,0 +1,58 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Квиз
+{% endblock %}
+
+{% block page-lead %}
+Вопросы случайным образом генерируются из базы данных и динамически вставляются в таблицу.
+{% endblock %}
+
+{% block content %}
+<div class="container" id="quiz-table">
+        <table class="table striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Вопрос</th>
+              <th>Ответ</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for wordid, word, translation in words %}
+            <tr>
+                <td class="py-3">{{ wordid }}</td>
+                <td class="py-3">{{ word }}</td>
+                <td class="py-3">
+                    {% if quiz_start %}
+                    <form method="post">
+                        <label for="answer-{{ wordid }}">Ваш ответ:</label>
+                        <input type="text" class="form-control input-lg" name="answer-{{ wordid }}" id="answer-{{ wordid }}">
+                    {% endif %}
+                    {% if not quiz_start %}
+                        {% load index %}
+                        {% if translation != answers|index:forloop.counter0 %}
+                             <s>{{ answers|index:forloop.counter0 }}</s> {{ translation }}
+                        {% else %}
+                            {{ translation }}
+                        {% endif %}
+                        {{ marks|index:forloop.counter0 }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if quiz_start %}
+        <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light teal lighten-1" formaction="/check-quiz">Проверить</button>
+        </div>
+
+        {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Проект для изучения английских слов
+{% endblock %}
+
+{% block page-lead %}
+Задание на разработку вебсайта для курса по Питону
+{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">format_list_bulleted</i></h2>
+            <h5 class="center">Список слов</h5>
+
+            <p class="light">Простая страница с контентом, который разложен в таблицу. Содержимое таблицы находится в локальной базе данных.</p>
+              <div class="row center">
+                  <a href="/terms-list" id="list-button" class="btn-large waves-effect waves-light teal lighten-1">Посмотреть</a>
+              </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Форма для создания карточки</h5>
+
+            <p class="light">Пример POST-запроса, который отправится после того, как вы заполните форму. Он допишет термин в
+              базу данных.</p>
+              <div class="row center">
+                  <a href="/add-term" id="add-button" class="btn-large waves-effect waves-light teal lighten-1">Заполнить</a>
+              </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">trending_up</i></h2>
+            <h5 class="center">Статистика</h5>
+
+            <p class="light">Сколько слов уже есть? Кто их внес?</p>
+              <div class="row center">
+                  <a href="/stats" id="stats-button" class="btn-large waves-effect waves-light teal lighten-1">Изучить</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">“С языками вы дома в любом месте” – Эдвард Де Ваал</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="static/background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">question_answer</i></h2>
+            <h5 class="center">Тест</h5>
+
+            <p class="light">Тест по словам из списка. Предложено написать русский перевод слов. Реализована проверка.</p>
+              <div class="row center">
+                  <a href="/quiz" id="quiz-button" class="btn-large waves-effect waves-light teal lighten-1">Пройти</a>
+              </div>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">translate</i></h2>
+            <h5 class="center">Карточки</h5>
+
+            <p class="light">Карточки для заучивания слов. При каждом открытии страницы перемешиваются.</p>
+              <div class="row center">
+                  <a href="/flashcards" id="cards-button" class="btn-large waves-effect waves-light teal lighten-1">Открыть</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">“Учить язык, значит, открыть новое окно в мир” – китайская поговорка</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="static/background3.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+{% endblock %}
+

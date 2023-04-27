@@ -1,0 +1,49 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Добавить слово
+{% endblock %}
+
+{% block page-lead %}
+Когда вы нажмёте на кнопку &laquo;Отправить&raquo;, веб-приложению отправится POST-запрос.
+При этом в полях <span class="fst-italic">Имя</span> и <span class="fst-italic">Email</span> есть атрибут
+<code>value required</code>, который подсказывает пользователю о необходимости заполнения.
+{% endblock %}
+
+
+{% block content %}
+<div class="container" id="term-form">
+    <form method="post">
+        <div class="row">
+            <h3>Ваши контактные данные</h3>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <label for="name">Ваше имя:</label>
+                <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Иван" value required>
+            </div>
+            <div class="col s6">
+                <label for="email">Ваш контактный email:</label>
+                <input type="text" class="form-control input-lg" name="email" id="email" placeholder="ivan@ivanov.com" value required>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Ваше слово</h3>
+        </div>
+        <div class="row">
+            <div class="col s4">
+                <label for="new_word">Слово</label>
+                <input type="text" class="form-control input-lg" name="new_word" id="new_word">
+            </div>
+            <div class="col s8">
+                <label for="new_translation">Перевод</label>
+                <textarea type="text" class="form-control input-lg" name="new_translation" id="new_translation" aria-describedby="translation_note" rows="3"></textarea>
+                <div id="translation_note" class="form-text">Постарайтесь уложиться в одно, максимум два предложения</div>
+            </div>
+        </div>
+        <div class="row center">
+            <button type="submit" formaction="/send-term" id="send-button" class="btn-large waves-effect waves-light teal lighten-1">Отправить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

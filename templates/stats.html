@@ -1,0 +1,32 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Статистика по словам
+{% endblock %}
+
+{% block page-lead %}
+Перед тем, как отрендерить эту страницу, веб-приложение ходит в файл/БД, обновляет статистики, а затем подставляет их в шаблон страницы.
+Всё это можно посмотреть в файле <code>views.py</code>.
+{% endblock %}
+
+{% block content %}
+<div class="container" id="stats">
+    <div>
+        <h3>Количество слов</h3>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <h4>{{ words_all }}</h4>
+            <p class="text-muted">всего</p>
+        </div>
+        <div class="col s4">
+            <h4>{{ words_own }}</h4>
+            <p class="text-muted">изначально бывших в базе</p>
+        </div>
+        <div class="col s4">
+            <h4>{{ words_added }}</h4>
+            <p class="text-muted">добавленных через <a href="/add-term">форму добавления слов</a></p>
+        </div>
+    </div>
+    </div>
+{% endblock %}
